@@ -135,24 +135,26 @@ At import time, the module runs **routing assertions** on synthetic state to gua
 ```mermaid
 flowchart LR
     subgraph Browser
-        FE[React SPA]
+        FE["React SPA"]
     end
-    subgraph Backend["FastAPI (backend/main.py)"]
-        API[/api/v1/*]
-        G[LangGraph pipeline]
-        SS[SchemaService\nChroma + embeddings]
-        DB_APP[(SQLite app.db\nsessions, messages, history)]
+
+    subgraph Backend["FastAPI Backend"]
+        API["/api/v1"]
+        G["LangGraph Pipeline"]
+        SS["SchemaService + ChromaDB"]
+        DB_APP["SQLite app.db"]
     end
+
     subgraph Data
-        DEMO[(SQLite demo.db\nretail analytics)]
+        DEMO["SQLite demo.db"]
     end
+
     FE -->|HTTP JSON| API
     API --> G
     G --> SS
     G --> DEMO
     API --> DB_APP
 ```
-
 - **Frontend** talks to **`/api/v1`** using Axios; base URL defaults to `http://localhost:8000/api/v1` or `VITE_API_BASE_URL`.
 - **Application DB** (`DATABASE_URL`) stores conversational and operational metadata (see SQLAlchemy models under `backend/db/`).
 - **Demo DB** (`DEMO_DB_URL`) holds **read-only analytic** tables used when executing user queries.
