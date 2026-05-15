@@ -60,11 +60,19 @@ Watch the complete walkthrough of the BI-Agent project, including:
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
-| Chat & results | Trace panel |
-|----------------|-------------|
-| _[Add screenshot: main chat + SQL + chart]_ | _[Add screenshot: trace / step timeline]_ |
+### Main Dashboard
+![Main Dashboard](docs/screenshots/dashboard.png)
+
+### Query Execution
+![Query Execution](docs/screenshots/query.png)
+
+### Trace Visualization
+![Trace Visualization](docs/screenshots/trace.png)
+
+### Charts & Insights
+![Charts](docs/screenshots/charts.png)
 
 ---
 
