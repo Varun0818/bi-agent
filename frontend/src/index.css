@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ──────────────────────────────────────── */
+:root {
+  --brand: #1D9E75;
+  --brand-dark: #085041;
+  --brand-light: #E1F5EE;
+  --brand-muted: rgba(29, 158, 117, 0.12);
+  --brand-glow: rgba(29, 158, 117, 0.18);
+
+  /* Light mode */
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #F1F5F9;
+  --bg-sidebar: #0F172A;
+  --bg-card: #FFFFFF;
+  --bg-input: #FFFFFF;
+  --bg-hover: #F1F5F9;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --text-muted: #94A3B8;
+  --text-sidebar: #E2E8F0;
+  --border: #E2E8F0;
+  --border-sidebar: rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 4px 20px rgba(0, 0, 0, 0.10);
+  --shadow-glow: 0 0 24px rgba(29, 158, 117, 0.18);
+
+  /* Legacy alias */
+  --color-brand: #1D9E75;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0C1526;
+  --bg-secondary: #0E1B2E;
+  --bg-sidebar: #060E1C;
+  --bg-card: #122338;
+  --bg-input: #172840;
+  --bg-hover: #1A2E48;
+  --text-primary: #E2E8F0;
+  --text-secondary: #94A3B8;
+  --text-muted: #475569;
+  --text-sidebar: #CBD5E1;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-sidebar: rgba(255, 255, 255, 0.06);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 32px rgba(29, 158, 117, 0.22);
+}
+
+/* ─── Base transitions ──────────────────────────────────── */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Utility classes ───────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+}
+
+.insight-border {
+  border-left: 3px solid var(--brand);
+}
+
+.brand-text {
+  color: var(--brand);
+}
+
+.sidebar-bg {
+  background: var(--bg-sidebar);
+}
+
+.sidebar-item {
+  color: var(--text-sidebar);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.sidebar-item.active {
+  background: rgba(29, 158, 117, 0.14);
+  border-left: 2px solid var(--brand);
+  color: #fff;
+}
+
+/* ─── Hero icon pulse glow ──────────────────────────────── */
+@keyframes heroGlow {
+  0%, 100% { box-shadow: 0 0 24px 4px rgba(29, 158, 117, 0.20), 0 0 60px 8px rgba(29, 158, 117, 0.08); }
+  50%       { box-shadow: 0 0 36px 8px rgba(29, 158, 117, 0.32), 0 0 80px 16px rgba(29, 158, 117, 0.14); }
+}
+
+.hero-glow {
+  animation: heroGlow 3s ease-in-out infinite;
+}
+
+/* ─── Fade-in for messages ──────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.msg-appear {
+  animation: fadeSlideUp 0.25s ease forwards;
+}
+
+/* ─── Custom scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.45);
+}
+
+/* ─── Focus rings ───────────────────────────────────────── */
+*:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}

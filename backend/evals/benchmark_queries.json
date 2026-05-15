@@ -1,0 +1,227 @@
+[
+  {
+    "id": "eval_001",
+    "category": "aggregation",
+    "difficulty": "easy",
+    "user_query": "Across every line item we have ever sold, what is the total number of units shipped?",
+    "expected_tables": ["order_items"],
+    "expected_keywords": ["SUM"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_002",
+    "category": "aggregation",
+    "difficulty": "easy",
+    "user_query": "What is the average dollar amount of an order using the stored order totals?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["AVG"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_003",
+    "category": "aggregation",
+    "difficulty": "easy",
+    "user_query": "How many orders in the database are marked as completed?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["COUNT"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_004",
+    "category": "aggregation",
+    "difficulty": "medium",
+    "user_query": "What is the largest checkout total recorded on any single order?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["MAX"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_005",
+    "category": "aggregation",
+    "difficulty": "medium",
+    "user_query": "What combined revenue did we recognize on all completed orders only?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["SUM"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_006",
+    "category": "groupby",
+    "difficulty": "easy",
+    "user_query": "Break down how many orders we have in each fulfillment status.",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["GROUP", "COUNT"],
+    "expected_row_count_range": [3, 3]
+  },
+  {
+    "id": "eval_007",
+    "category": "groupby",
+    "difficulty": "easy",
+    "user_query": "How many loyalty members do we have in each geographic region?",
+    "expected_tables": ["customers"],
+    "expected_keywords": ["GROUP", "COUNT"],
+    "expected_row_count_range": [4, 4]
+  },
+  {
+    "id": "eval_008",
+    "category": "groupby",
+    "difficulty": "medium",
+    "user_query": "What is the total on-hand inventory quantity summed up for each merchandise category?",
+    "expected_tables": ["products"],
+    "expected_keywords": ["SUM", "GROUP"],
+    "expected_row_count_range": [4, 4]
+  },
+  {
+    "id": "eval_009",
+    "category": "groupby",
+    "difficulty": "medium",
+    "user_query": "What is the average list price of a SKU within each product category?",
+    "expected_tables": ["products"],
+    "expected_keywords": ["AVG", "GROUP"],
+    "expected_row_count_range": [4, 4]
+  },
+  {
+    "id": "eval_010",
+    "category": "groupby",
+    "difficulty": "medium",
+    "user_query": "For each sales region, how many monthly quota rows exist in the targets table for 2024?",
+    "expected_tables": ["sales_targets"],
+    "expected_keywords": ["GROUP", "COUNT"],
+    "expected_row_count_range": [4, 4]
+  },
+  {
+    "id": "eval_011",
+    "category": "timeseries",
+    "difficulty": "medium",
+    "user_query": "For calendar year 2024, show completed order revenue grouped by month as YYYY-MM.",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["STRFTIME", "SUM"],
+    "expected_row_count_range": [12, 12]
+  },
+  {
+    "id": "eval_012",
+    "category": "timeseries",
+    "difficulty": "medium",
+    "user_query": "Across the entire order history, what is total order revenue for each calendar month?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["STRFTIME", "SUM"],
+    "expected_row_count_range": [24, 24]
+  },
+  {
+    "id": "eval_013",
+    "category": "timeseries",
+    "difficulty": "easy",
+    "user_query": "How many orders were placed in each calendar year present in the data?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["STRFTIME", "COUNT"],
+    "expected_row_count_range": [2, 2]
+  },
+  {
+    "id": "eval_014",
+    "category": "timeseries",
+    "difficulty": "hard",
+    "user_query": "For July through December 2024 only, report total completed order revenue for each month (YYYY-MM).",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["STRFTIME", "SUM"],
+    "expected_row_count_range": [6, 6]
+  },
+  {
+    "id": "eval_015",
+    "category": "join",
+    "difficulty": "medium",
+    "user_query": "What is the extended line revenue (after discounts) for all items sold in the Clothing category?",
+    "expected_tables": ["order_items", "products"],
+    "expected_keywords": ["JOIN", "SUM"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_016",
+    "category": "join",
+    "difficulty": "medium",
+    "user_query": "For each customer region, what is the sum of order totals for completed orders only?",
+    "expected_tables": ["orders", "customers"],
+    "expected_keywords": ["JOIN", "SUM"],
+    "expected_row_count_range": [4, 4]
+  },
+  {
+    "id": "eval_017",
+    "category": "join",
+    "difficulty": "easy",
+    "user_query": "How many individual order line rows involve a product from the Food category?",
+    "expected_tables": ["order_items", "products"],
+    "expected_keywords": ["JOIN", "COUNT"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_018",
+    "category": "join",
+    "difficulty": "hard",
+    "user_query": "What is the combined order value for customers who live in the West region?",
+    "expected_tables": ["orders", "customers"],
+    "expected_keywords": ["JOIN", "SUM"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_019",
+    "category": "filter",
+    "difficulty": "easy",
+    "user_query": "How many orders are currently sitting in Pending status?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["COUNT"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_020",
+    "category": "filter",
+    "difficulty": "easy",
+    "user_query": "What dollar volume of orders was cancelled and therefore should not count as net sales?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["SUM"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_021",
+    "category": "filter",
+    "difficulty": "medium",
+    "user_query": "How many Electronics SKUs have a list price strictly greater than 100 dollars?",
+    "expected_tables": ["products"],
+    "expected_keywords": ["COUNT"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_022",
+    "category": "filter",
+    "difficulty": "medium",
+    "user_query": "How many products have fewer than 100 units left in stock?",
+    "expected_tables": ["products"],
+    "expected_keywords": ["COUNT"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_023",
+    "category": "complex",
+    "difficulty": "hard",
+    "user_query": "How many distinct customers have placed more than three orders?",
+    "expected_tables": ["orders"],
+    "expected_keywords": ["HAVING", "COUNT"],
+    "expected_row_count_range": [1, 1]
+  },
+  {
+    "id": "eval_024",
+    "category": "complex",
+    "difficulty": "hard",
+    "user_query": "Which merchandise categories have an average units-per-line-item sold strictly greater than three?",
+    "expected_tables": ["order_items", "products"],
+    "expected_keywords": ["HAVING", "AVG"],
+    "expected_row_count_range": [4, 4]
+  },
+  {
+    "id": "eval_025",
+    "category": "complex",
+    "difficulty": "hard",
+    "user_query": "Count how many line items appear on orders whose total is above the overall average order size.",
+    "expected_tables": ["order_items", "orders"],
+    "expected_keywords": ["JOIN", "COUNT"],
+    "expected_row_count_range": [1, 1]
+  }
+]

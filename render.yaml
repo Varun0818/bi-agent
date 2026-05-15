@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: bi-agent-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false          # Set manually in Render dashboard
+      - key: APP_ENV
+        value: production
+      - key: LLM_MODEL
+        value: llama-3.3-70b-versatile
+      - key: MAX_RETRIES
+        value: "3"
+      - key: ALLOWED_ORIGINS
+        sync: false          # Set to your Vercel URL after deployment
+    healthCheckPath: /health
+
+# NOTE: For persistent SQLite data, add a Render disk:
+# Go to Render dashboard → your service → Disks → Add Disk
+# Mount path: /app/data    Size: 1GB    ($7/month)
+# Without disk: data resets on each deploy (acceptable for demo/portfolio)
