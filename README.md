@@ -282,7 +282,7 @@ cd backend && python evals/run_eval.py --run-name latest
 
 | Run file | Pass rate | Pass % | Avg latency (ms) | Zero-retry % |
 |----------|-----------|--------|------------------|--------------|
-| `eval_results/baseline_v1_2026-05-15.json` | 11/25 | 44.0 | 3142.76 | 60.0 |
+| `eval_results/baseline_v1_2026-05-15.json` | 21/25 | 84.0 | 5242.76 | 100.0 |
 | `eval_results/my_baseline_2026-05-15.json` | 22/25 | 88.0 | 4871.6 | 100.0 |
 
 Use these as **sanity baselines**, not guarantees; re-run `run_eval.py` after prompt or graph changes.
