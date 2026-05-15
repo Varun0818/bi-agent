@@ -72,7 +72,7 @@ Watch the complete walkthrough of the BI-Agent project, including:
 ![Trace Visualization](docs/screenshots/trace.png)
 
 ### Charts & Insights
-![Charts](docs/screenshots/charts.png)
+![Charts](docs/screenshots/chart.png)
 
 ---
 
