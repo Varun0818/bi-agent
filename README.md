@@ -45,9 +45,18 @@ The **BI Agent** is a full-stack demo that turns natural language into **SQLite 
 
 ## Demo video
 
-| | |
-|---|---|
-| **Walkthrough** | _[Add your Loom / YouTube link here]_ |
+## 🎥 Demo Video
+
+Watch the complete walkthrough of the BI-Agent project, including:
+- LangGraph workflow
+- Natural language to SQL
+- Analytics generation
+- SQL validation + retries
+- Charts and insights
+- Integration testing
+- Full-stack architecture
+
+👉 [Watch Full Demo](https://drive.google.com/file/d/1o9Vm8xul_kreLAoVjeoB5tWNUFR6xGhc/view?usp=drivesdk)
 
 ---
 
