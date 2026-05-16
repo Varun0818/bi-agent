@@ -56,7 +56,7 @@ Watch the complete walkthrough of the BI-Agent project, including:
 - Integration testing
 - Full-stack architecture
 
-👉 [Watch Full Demo](https://drive.google.com/file/d/1o9Vm8xul_kreLAoVjeoB5tWNUFR6xGhc/view?usp=drivesdk)
+👉 [Watch Full Demo](https://drive.google.com/file/d/1qdMNwL0FUDSFwNLP3QhwwKwEGwK76HSn/view?usp=drivesdk)
 
 ---
 
